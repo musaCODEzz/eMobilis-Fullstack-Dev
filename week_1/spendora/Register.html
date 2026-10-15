@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration Form - Spendora</title>
+
+    <style>
+        /* 1. Basic Reset to ensure consistency across browsers */
+        * {
+            box-sizing: border-box; 
+            margin: 0;
+            padding: 0;
+        }
+
+        /* 2. Center the form on the screen with a subtle background */
+        body {
+            font-family: 'Inter', system-ui, -apple-system, sans-serif;
+            background: linear-gradient(135deg, #f6f8fd 0%, #f1f5f9 100%);
+            color: #333;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        /* 3. The Form Card container */
+        form {
+            background-color: #ffffff;
+            width: 100%;
+            max-width: 420px;
+            padding: 40px 32px;
+            border-radius: 16px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+        }
+
+        /* 4. Typography updates */
+        h1 {
+            font-size: 1.75rem;
+            font-weight: 700;
+            margin-bottom: 8px;
+            color: #1e293b;
+            text-align: center;
+        }
+        
+        p.subtitle {
+            text-align: center;
+            color: #64748b;
+            font-size: 0.95rem;
+            margin-bottom: 30px;
+        }
+
+        /* 5. Form Group layout (Replaces the <br> tags) */
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        label {
+            display: block;
+            font-size: 0.875rem;
+            font-weight: 600;
+            margin-bottom: 8px;
+            color: #475569;
+        }
+
+        /* 6. Modern Input styling */
+        input[type="text"],
+        input[type="email"],
+        input[type="password"] {
+            width: 100%;
+            padding: 14px 16px;
+            font-size: 1rem;
+            border: 1px solid #cbd5e1;
+            border-radius: 8px;
+            background-color: #f8fafc;
+            transition: all 0.2s ease;
+        }
+
+        /* 7. Focus States (What happens when a user clicks the input) */
+        input[type="text"]:focus,
+        input[type="email"]:focus,
+        input[type="password"]:focus {
+            outline: none;
+            border-color: #6366f1; /* Spendora Indigo */
+            background-color: #ffffff;
+            box-shadow: 0 0 0 4px rgba(99, 102, 241, 0.15);
+        }
+
+        /* 8. The Submit Button */
+        input[type="submit"] {
+            width: 100%;
+            background-color: #6366f1;
+            color: white;
+            padding: 14px;
+            font-size: 1rem;
+            font-weight: 600;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: background-color 0.2s ease, transform 0.1s ease;
+            margin-top: 10px;
+        }
+
+        /* 9. Button interactions */
+        input[type="submit"]:hover {
+            background-color: #4f46e5; /* Darker indigo on hover */
+        }
+
+        input[type="submit"]:active {
+            transform: scale(0.98); /* Slight click effect */
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Added a basic action and POST method so it's ready for your backend -->
+    <form action="#" method="POST">
+        
+        <h1>Join Spendora</h1>
+        <p class="subtitle">Create your account to get started</p>
+
+        <!-- Form fields are wrapped in 'form-group' divs for clean spacing -->
+        <div class="form-group">
+            <label for="username">Username</label>
+            <input type="text" id="username" name="username" placeholder="e.g. alex_doe" required>
+        </div>
+
+        <div class="form-group">
+            <label for="email">Email Address</label>
+            <input type="email" id="email" name="email" placeholder="alex@example.com" required>
+        </div>
+
+        <div class="form-group">
+            <label for="password">Password</label>
+            <input type="password" id="password" name="password" placeholder="••••••••" required>
+        </div>
+
+        <div class="form-group">
+            <label for="confirm-password">Confirm Password</label>
+            <input type="password" id="confirm-password" name="confirm-password" placeholder="••••••••" required>
+        </div>
+
+        <input type="submit" value="Register">
+    </form>
+
+</body>
+</html>
