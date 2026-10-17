@@ -138,28 +138,19 @@ input:focus {
     gap: 15px;
 }
 
-.icon {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+/* Custom Image Icons */
+.social-icons img {
     width: 35px;
     height: 35px;
     border-radius: 50%;
-    color: #ffffff;
-    text-decoration: none;
-    font-size: 16px;
     transition: opacity 0.3s;
 }
 
-.icon:hover {
+.social-icons a:hover img {
     opacity: 0.8;
 }
 
-.facebook { background-color: #3b5998; }
-.google { background-color: #db4a39; }
-.linkedin { background-color: #0077b5; }
-
-/* Responsive adjustments for smaller screens */
+/* Responsive */
 @media (max-width: 768px) {
     .container {
         flex-direction: column;
