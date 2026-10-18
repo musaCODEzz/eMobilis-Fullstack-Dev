@@ -4,30 +4,124 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SPENDORA - Employee</title>
+    <style>
+        /* Base Page Styling */
+        body {
+            font-family: 'Inter', system-ui, -apple-system, sans-serif;
+            background: linear-gradient(135deg, #e0e7ff 0%, #f3f4f6 100%);
+            margin: 0;
+            padding: 40px 20px;
+            min-height: 100vh;
+        }
+
+        /* Typography */
+        h2 {
+            text-align: center;
+            color: #4338ca;
+            font-size: 2.5rem;
+            margin-bottom: 5px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .subtitle {
+            text-align: center;
+            color: #64748b;
+            font-size: 1.1rem;
+            margin-top: 0;
+            margin-bottom: 30px;
+        }
+
+        /* Table Container and Structure */
+        table {
+            width: 100%;
+            max-width: 800px;
+            margin: 0 auto;
+            border-collapse: collapse;
+            background-color: #ffffff;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+            border-radius: 12px;
+            overflow: hidden; /* Keeps the rounded corners intact */
+        }
+
+        /* Table Headers */
+        th {
+            background-color: #4338ca;
+            color: #ffffff;
+            padding: 18px 20px;
+            text-align: left;
+            font-weight: 600;
+            font-size: 0.95rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        /* Table Data Cells */
+        td {
+            padding: 16px 20px;
+            color: #475569;
+            border-bottom: 1px solid #f1f5f9;
+        }
+
+        /* Specific Column Styling */
+        .emp-name {
+            font-weight: 600;
+            color: #0f172a;
+        }
+
+        .emp-salary {
+            color: #10b981;
+            font-weight: 700;
+        }
+
+        /* Automatic Zebra Striping for even rows */
+        tbody tr:nth-child(even) {
+            background-color: #f8fafc;
+        }
+
+        /* Interactive Hover Effect */
+        tbody tr:hover {
+            background-color: #f1f5f9;
+            transition: background-color 0.2s ease;
+            cursor: pointer;
+        }
+    </style>
 </head>
 <body>
-    <h2>Employee Portal</h2>
-    <p>Welcome to the SPENDORA Employee Portal!</p>
+
+    <h2>Spendora</h2>
+    <p class="subtitle">Employee Portal Overview</p>
     
     <table>
-        <tr>
-            <th>NO. </th>
-            <th>Full Name</th>
-            <th>Position</th>
-            <th>Salary</th>
-        </tr>
-        <tr>
-            <td>001</td>
-            <td>John Doe</td>
-            <td>Manager</td>
-            <td>1000</td>
-        </tr>
-        <tr>
-            <td>002</td>
-            <td>Jane Smith</td>
-            <td>Sales Executive</td>
-            <td>800</td>
-        </tr>
+        <thead>
+            <tr>
+                <th>NO.</th>
+                <th>Full Name</th>
+                <th>Position</th>
+                <th>Salary</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>001</td>
+                <td class="emp-name">John Doe</td>
+                <td>Manager</td>
+                <td class="emp-salary">$1,000</td>
+            </tr>
+            <tr>
+                <td>002</td>
+                <td class="emp-name">Jane Smith</td>
+                <td>Sales Executive</td>
+                <td class="emp-salary">$800</td>
+            </tr>
+            <tr>
+                <td>003</td>
+                <td class="emp-name">Marcus Johnson</td>
+                <td>Developer</td>
+                <td class="emp-salary">$1,200</td>
+            </tr>
+        </tbody>
     </table>
+
 </body>
 </html>
