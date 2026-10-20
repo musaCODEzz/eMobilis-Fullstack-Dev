@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Spendora - Home</title>
+    
+    <!-- Importing a premium, modern font from Google -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;800&display=swap" rel="stylesheet">
+    
+    <!-- Your local Bootstrap CSS -->
+    <link rel="stylesheet" href="/week_2/spendora/bootstrap/css/bootstrap.min.css">
+    
+    <style>
+        /* 1. Global Font Update */
+        body {
+            font-family: 'Poppins', sans-serif;
+        }
+
+        /* 2. Sleeker Navbar */
+        .navbar {
+            background-color: rgba(15, 23, 42, 0.95) !important;
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        /* 3. Carousel Layout Sizing */
+        .carousel-item {
+            height: 90vh; /* Taller hero section for a grander entrance */
+            min-height: 500px;
+        }
+        
+        .carousel-item img {
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 100%;
+            object-fit: cover;
+        }
+
+        /* 4. The Magic Gradient Overlay (Looks much better than flat black) */
+        .carousel-item::after {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 100%;
+            /* Fades from deep dark blue on the left to transparent on the right */
+            background: linear-gradient(90deg, rgba(15, 23, 42, 0.95) 0%, rgba(30, 58, 138, 0.6) 50%, rgba(255, 255, 255, 0) 100%);
+            z-index: 1;
+        }
+        
+        /* 5. Left-aligned, professional text positioning */
+        .carousel-caption {
+            bottom: 0; top: 0; left: 8%; right: 8%;
+            display: flex !important;
+            flex-direction: column;
+            justify-content: center;
+            align-items: flex-start; /* Aligns text to the left */
+            text-align: left;
+            z-index: 2; /* Keeps text above the gradient */
+        }
+
+        /* 6. Spiced Up Button */
+        .btn-spendora {
+            background: linear-gradient(45deg, #4f46e5, #3b82f6);
+            border: none;
+            color: white;
+            box-shadow: 0 4px 15px rgba(59, 130, 246, 0.4);
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+        
+        .btn-spendora:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(59, 130, 246, 0.6);
+            color: white;
+        }
+
+        /* 7. Text Entrance Animations */
+        .carousel-caption h1, .carousel-caption p, .carousel-caption a {
+            opacity: 0; /* Hidden initially so they can animate in */
+        }
+
+        /* When the slide is active, trigger the animations with staggered delays */
+        .carousel-item.active .carousel-caption h1 { animation: slideUpFade 0.8s ease-out 0.2s forwards; }
+        .carousel-item.active .carousel-caption p { animation: slideUpFade 0.8s ease-out 0.4s forwards; }
+        .carousel-item.active .carousel-caption a { animation: slideUpFade 0.8s ease-out 0.6s forwards; }
+
+        @keyframes slideUpFade {
+            0% { opacity: 0; transform: translateY(40px); }
+            100% { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+</head>
+<body class="bg-light">
+
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark sticky-top shadow-sm">
+      <div class="container">
+        <a class="navbar-brand fw-bold fs-3 text-white" href="#" style="letter-spacing: 1.5px;">
+            <span style="color: #3b82f6;">SPEN</span>DORA
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav ms-auto me-4">
+            <li class="nav-item"><a class="nav-link active" href="#">Home</a></li>
+            <li class="nav-item"><a class="nav-link" href="#">Features</a></li>
+            <li class="nav-item"><a class="nav-link" href="#">Employee Portal</a></li>
+            <li class="nav-item"><a class="nav-link" href="#">Contact</a></li>
+          </ul>
+          <a href="#" class="btn btn-spendora rounded-pill px-4 fw-bold">Login</a>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Carousel -->
+    <!-- Interval changed to 2500 for a fast, punchy 2.5-second rotation -->
+    <div id="heroCarousel" class="carousel slide carousel-fade" data-bs-ride="carousel">
+      
+      <div class="carousel-indicators">
+        <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="0" class="active"></button>
+        <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="1"></button>
+        <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="2"></button>
+      </div>
+      
+      <div class="carousel-inner">
+        
+        <!-- Slide 1 -->
+        <div class="carousel-item active" data-bs-interval="2500">
+          <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=2070&auto=format&fit=crop" alt="Dashboard">
+          <div class="carousel-caption w-75">
+            <h1 class="display-2 fw-bold text-white mb-3">Smart Financial<br><span style="color: #3b82f6;">Tracking.</span></h1>
+            <p class="lead fs-4 text-light mb-4 w-75">Take absolute control of your corporate expenses and team budgets with Spendora's unified platform.</p>
+            <a href="#" class="btn btn-spendora btn-lg rounded-pill px-5 fw-bold">Start Free Trial</a>
+          </div>
+        </div>
+        
+        <!-- Slide 2 -->
+        <div class="carousel-item" data-bs-interval="2500">
+          <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=2015&auto=format&fit=crop" alt="Data Analysis">
+          <div class="carousel-caption w-75">
+            <h1 class="display-2 fw-bold text-white mb-3">Real-Time<br><span style="color: #3b82f6;">Insights.</span></h1>
+            <p class="lead fs-4 text-light mb-4 w-75">Transform raw data into actionable intelligence with our advanced analytics and automated reporting.</p>
+            <a href="#" class="btn btn-spendora btn-lg rounded-pill px-5 fw-bold">View Features</a>
+          </div>
+        </div>
+        
+        <!-- Slide 3 -->
+        <div class="carousel-item" data-bs-interval="2500">
+          <img src="https://images.unsplash.com/photo-1563986768609-322da13575f3?q=80&w=1470&auto=format&fit=crop" alt="Security">
+          <div class="carousel-caption w-75">
+            <h1 class="display-2 fw-bold text-white mb-3">Bank-Level<br><span style="color: #3b82f6;">Security.</span></h1>
+            <p class="lead fs-4 text-light mb-4 w-75">Your financial infrastructure is protected by military-grade encryption and constant threat monitoring.</p>
+            <a href="#" class="btn btn-spendora btn-lg rounded-pill px-5 fw-bold">Secure Account</a>
+          </div>
+        </div>
+
+      </div>
+      
+      <button class="carousel-control-prev" type="button" data-bs-target="#heroCarousel" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+      </button>
+      <button class="carousel-control-next" type="button" data-bs-target="#heroCarousel" data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+      </button>
+    </div>
+
+    <!-- Your local Bootstrap JS -->
+    <script src="/week_2/spendora/bootstrap/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
