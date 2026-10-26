@@ -141,4 +141,30 @@
    */
   new PureCounter();
 
+  /**
+   * Contact Form Handler (Client-side)
+   */
+  const contactForm = document.querySelector('#contactForm') || document.querySelector('.php-email-form');
+  if (contactForm) {
+    contactForm.addEventListener('submit', function(e) {
+      e.preventDefault();
+      const loading = contactForm.querySelector('.loading');
+      const sentMessage = contactForm.querySelector('.sent-message');
+      const errorMessage = contactForm.querySelector('.error-message');
+
+      if (loading) loading.classList.add('d-block');
+      if (errorMessage) errorMessage.classList.remove('d-block');
+      if (sentMessage) sentMessage.classList.remove('d-block');
+
+      setTimeout(() => {
+        if (loading) loading.classList.remove('d-block');
+        if (sentMessage) sentMessage.classList.add('d-block');
+        contactForm.reset();
+        setTimeout(() => {
+          if (sentMessage) sentMessage.classList.remove('d-block');
+        }, 5000);
+      }, 600);
+    });
+  }
+
 })();
