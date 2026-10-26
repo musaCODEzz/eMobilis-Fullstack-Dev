@@ -1,0 +1,618 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>eMobilis Fullstack Development | Musa's Project Portfolio</title>
+    <meta name="description" content="Showcase of fullstack development coursework, projects, and assignments at eMobilis by Musa.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --bg-primary: #0a0e17;
+            --bg-secondary: #111827;
+            --bg-card: rgba(17, 24, 39, 0.7);
+            --border-card: rgba(255, 255, 255, 0.08);
+            --border-hover: rgba(59, 130, 246, 0.5);
+            --text-primary: #f9fafb;
+            --text-secondary: #9ca3af;
+            --text-muted: #6b7280;
+            --accent-blue: #3b82f6;
+            --accent-cyan: #06b6d4;
+            --accent-purple: #8b5cf6;
+            --accent-emerald: #10b981;
+            --gradient-primary: linear-gradient(135deg, #3b82f6 0%, #8b5cf6 50%, #ec4899 100%);
+            --gradient-card: linear-gradient(145deg, rgba(255, 255, 255, 0.04) 0%, rgba(255, 255, 255, 0.01) 100%);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background-color: var(--bg-primary);
+            color: var(--text-primary);
+            line-height: 1.6;
+            min-height: 100vh;
+            overflow-x: hidden;
+            position: relative;
+        }
+
+        /* Subtle Ambient Glows */
+        .ambient-glow {
+            position: fixed;
+            width: 500px;
+            height: 500px;
+            border-radius: 50%;
+            filter: blur(140px);
+            opacity: 0.15;
+            pointer-events: none;
+            z-index: 0;
+        }
+        .glow-1 { top: -100px; left: -100px; background: #3b82f6; }
+        .glow-2 { bottom: -100px; right: -100px; background: #8b5cf6; }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1.5rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        /* Header & Hero */
+        header {
+            padding: 4rem 0 2.5rem;
+            text-align: center;
+        }
+
+        .badge-pill {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.35rem 1rem;
+            background: rgba(59, 130, 246, 0.12);
+            border: 1px solid rgba(59, 130, 246, 0.3);
+            border-radius: 9999px;
+            color: #60a5fa;
+            font-size: 0.85rem;
+            font-weight: 600;
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
+            margin-bottom: 1.25rem;
+        }
+
+        .badge-pulse {
+            width: 8px;
+            height: 8px;
+            background-color: #10b981;
+            border-radius: 50%;
+            box-shadow: 0 0 10px #10b981;
+        }
+
+        h1 {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: clamp(2.25rem, 5vw, 3.75rem);
+            font-weight: 700;
+            line-height: 1.15;
+            margin-bottom: 1rem;
+            background: linear-gradient(to right, #ffffff, #d1d5db);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        h1 .highlight {
+            background: var(--gradient-primary);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .subtitle {
+            font-size: 1.15rem;
+            color: var(--text-secondary);
+            max-width: 650px;
+            margin: 0 auto 2rem;
+        }
+
+        .quick-meta {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 1.5rem;
+            flex-wrap: wrap;
+            margin-bottom: 3rem;
+        }
+
+        .meta-item {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 0.9rem;
+            color: var(--text-muted);
+        }
+
+        .meta-item svg {
+            width: 16px;
+            height: 16px;
+            fill: currentColor;
+        }
+
+        .meta-item a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            transition: color 0.2s ease;
+        }
+        .meta-item a:hover {
+            color: #60a5fa;
+        }
+
+        /* Section Styling */
+        .section-header {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin: 3.5rem 0 1.5rem;
+            padding-bottom: 0.75rem;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+        }
+
+        .section-tag {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 0.95rem;
+            font-weight: 700;
+            color: #60a5fa;
+            background: rgba(59, 130, 246, 0.1);
+            padding: 0.25rem 0.75rem;
+            border-radius: 6px;
+            border: 1px solid rgba(59, 130, 246, 0.2);
+        }
+
+        .section-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #f3f4f6;
+        }
+
+        /* Project Grid */
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+            gap: 1.5rem;
+        }
+
+        /* Project Cards */
+        .card {
+            background: var(--bg-card);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid var(--border-card);
+            border-radius: 16px;
+            padding: 1.5rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+            position: relative;
+            overflow: hidden;
+            text-decoration: none;
+            color: inherit;
+        }
+
+        .card::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            border-radius: 16px;
+            padding: 1px;
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.12), transparent);
+            -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+            -webkit-mask-composite: xor;
+            mask-composite: exclude;
+            pointer-events: none;
+        }
+
+        .card:hover {
+            transform: translateY(-4px);
+            border-color: var(--border-hover);
+            box-shadow: 0 16px 32px -8px rgba(0, 0, 0, 0.5), 0 0 20px 0 rgba(59, 130, 246, 0.2);
+        }
+
+        .featured-card {
+            background: linear-gradient(145deg, rgba(30, 41, 59, 0.8) 0%, rgba(15, 23, 42, 0.9) 100%);
+            border-color: rgba(59, 130, 246, 0.3);
+        }
+
+        .card-top {
+            margin-bottom: 1.25rem;
+        }
+
+        .card-badge-row {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 0.85rem;
+        }
+
+        .status-badge {
+            font-size: 0.75rem;
+            font-weight: 600;
+            padding: 0.2rem 0.6rem;
+            border-radius: 9999px;
+            background: rgba(16, 185, 129, 0.15);
+            color: #34d399;
+            border: 1px solid rgba(16, 185, 129, 0.3);
+        }
+
+        .tech-pill {
+            font-size: 0.75rem;
+            color: var(--text-muted);
+            font-weight: 500;
+        }
+
+        .card-title {
+            font-size: 1.35rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            color: #ffffff;
+        }
+
+        .arrow-icon {
+            opacity: 0.4;
+            transform: translateX(0);
+            transition: all 0.2s ease;
+        }
+
+        .card:hover .arrow-icon {
+            opacity: 1;
+            transform: translateX(4px);
+            color: #60a5fa;
+        }
+
+        .card-desc {
+            font-size: 0.92rem;
+            color: var(--text-secondary);
+            line-height: 1.5;
+            margin-bottom: 1.25rem;
+        }
+
+        .tag-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.45rem;
+        }
+
+        .tag {
+            font-size: 0.75rem;
+            padding: 0.2rem 0.55rem;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 6px;
+            color: #cbd5e1;
+            font-weight: 500;
+        }
+
+        .card-footer-cta {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-top: 1.25rem;
+            padding-top: 1rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.06);
+            font-size: 0.88rem;
+            font-weight: 600;
+            color: #60a5fa;
+        }
+
+        /* Footer */
+        footer {
+            margin-top: 6rem;
+            padding: 3rem 0;
+            border-top: 1px solid rgba(255, 255, 255, 0.08);
+            text-align: center;
+            color: var(--text-muted);
+            font-size: 0.9rem;
+        }
+
+        footer a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            transition: color 0.2s ease;
+        }
+
+        footer a:hover {
+            color: #60a5fa;
+        }
+
+        @media (max-width: 640px) {
+            .grid {
+                grid-template-columns: 1fr;
+            }
+            .section-header {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 0.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="ambient-glow glow-1"></div>
+    <div class="ambient-glow glow-2"></div>
+
+    <div class="container">
+        
+        <header>
+            <div class="badge-pill">
+                <span class="badge-pulse"></span>
+                eMobilis Fullstack Development
+            </div>
+            <h1>Coursework &amp; <span class="highlight">Project Showcase</span></h1>
+            <p class="subtitle">
+                A structured collection of web applications, landing pages, responsive architectures, and coursework developed by <strong>Musa</strong>.
+            </p>
+
+            <div class="quick-meta">
+                <div class="meta-item">
+                    <svg viewBox="0 0 24 24"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+                    <a href="https://github.com/musaCODEzz/eMobilis-Fullstack-Dev" target="_blank" rel="noopener">musaCODEzz / eMobilis-Fullstack-Dev</a>
+                </div>
+                <div class="meta-item">
+                    <span>⚡ Optimized &amp; Debloated</span>
+                </div>
+                <div class="meta-item">
+                    <span>📱 Fully Mobile Responsive</span>
+                </div>
+            </div>
+        </header>
+
+        <!-- Week 2 Projects -->
+        <div class="section-header">
+            <span class="section-tag">Week 02</span>
+            <h2 class="section-title">Advanced Frameworks &amp; Bootstrap 5</h2>
+        </div>
+
+        <div class="grid">
+            
+            <!-- Nexa Kenya -->
+            <a href="week_2/spendora/Nexa/index.html" class="card featured-card">
+                <div class="card-top">
+                    <div class="card-badge-row">
+                        <span class="status-badge">Featured Agency</span>
+                        <span class="tech-pill">Single Page App</span>
+                    </div>
+                    <h3 class="card-title">
+                        Nexa Kenya
+                        <span class="arrow-icon">→</span>
+                    </h3>
+                    <p class="card-desc">
+                        Full digital transformation &amp; software agency website tailored for Nairobi biasharas, SACCOs, and corporates with KES pricing and M-Pesa integration showcase.
+                    </p>
+                    <div class="tag-list">
+                        <span class="tag">Bootstrap 5</span>
+                        <span class="tag">GLightbox</span>
+                        <span class="tag">AOS</span>
+                        <span class="tag">PureCounter</span>
+                        <span class="tag">Client Form</span>
+                    </div>
+                </div>
+                <div class="card-footer-cta">
+                    <span>Launch Live Site</span>
+                    <span>View Project →</span>
+                </div>
+            </a>
+
+            <!-- EstateAgency -->
+            <a href="week_2/spendora/EstateAgency/index.html" class="card featured-card">
+                <div class="card-top">
+                    <div class="card-badge-row">
+                        <span class="status-badge">Multi-Page Portal</span>
+                        <span class="tech-pill">Real Estate</span>
+                    </div>
+                    <h3 class="card-title">
+                        EstateAgency
+                        <span class="arrow-icon">→</span>
+                    </h3>
+                    <p class="card-desc">
+                        Comprehensive real estate property portal featuring active property listings, single-property showcases with Swiper sliders, agents roster, and contact channels.
+                    </p>
+                    <div class="tag-list">
+                        <span class="tag">Bootstrap 5</span>
+                        <span class="tag">Swiper Slider</span>
+                        <span class="tag">FontAwesome</span>
+                        <span class="tag">Multi-Page</span>
+                        <span class="tag">Debloated</span>
+                    </div>
+                </div>
+                <div class="card-footer-cta">
+                    <span>Launch Live Site</span>
+                    <span>View Portal →</span>
+                </div>
+            </a>
+
+            <!-- Spendora Carousel -->
+            <a href="week_2/spendora/assino2.html" class="card">
+                <div class="card-top">
+                    <div class="card-badge-row">
+                        <span class="status-badge">Assignment 2</span>
+                        <span class="tech-pill">Components</span>
+                    </div>
+                    <h3 class="card-title">
+                        Spendora Carousel &amp; Nav
+                        <span class="arrow-icon">→</span>
+                    </h3>
+                    <p class="card-desc">
+                        Bootstrap 5 interactive hero slider featuring full-height carousel imagery with custom contrast overlays, responsive navigation, and slide indicators.
+                    </p>
+                    <div class="tag-list">
+                        <span class="tag">Bootstrap Carousel</span>
+                        <span class="tag">Responsive Nav</span>
+                        <span class="tag">CSS Filter Overlay</span>
+                    </div>
+                </div>
+                <div class="card-footer-cta">
+                    <span>View Component</span>
+                    <span>Open Demo →</span>
+                </div>
+            </a>
+
+            <!-- Spendora Contact Card -->
+            <a href="week_2/spendora/assino1.html" class="card">
+                <div class="card-top">
+                    <div class="card-badge-row">
+                        <span class="status-badge">Assignment 1</span>
+                        <span class="tech-pill">Forms</span>
+                    </div>
+                    <h3 class="card-title">
+                        Spendora Contact Card
+                        <span class="arrow-icon">→</span>
+                    </h3>
+                    <p class="card-desc">
+                        Modern centered card layout featuring custom Bootstrap rounded inputs, floating labels, and clean shadow elevation for customer inquiries.
+                    </p>
+                    <div class="tag-list">
+                        <span class="tag">Card UI</span>
+                        <span class="tag">Shadow Elevation</span>
+                        <span class="tag">Bootstrap Forms</span>
+                    </div>
+                </div>
+                <div class="card-footer-cta">
+                    <span>View Form</span>
+                    <span>Open Demo →</span>
+                </div>
+            </a>
+
+            <!-- Inventory Page -->
+            <a href="week_2/spendora/inventory.html" class="card">
+                <div class="card-top">
+                    <div class="card-badge-row">
+                        <span class="status-badge">Data Table</span>
+                        <span class="tech-pill">Bootstrap Tables</span>
+                    </div>
+                    <h3 class="card-title">
+                        Product Inventory
+                        <span class="arrow-icon">→</span>
+                    </h3>
+                    <p class="card-desc">
+                        Structured business inventory table displaying product catalogs, stock levels, unit pricing, and categories with hover highlights and responsive striped rows.
+                    </p>
+                    <div class="tag-list">
+                        <span class="tag">HTML5 Tables</span>
+                        <span class="tag">Bootstrap Striped</span>
+                        <span class="tag">Inventory</span>
+                    </div>
+                </div>
+                <div class="card-footer-cta">
+                    <span>View Table</span>
+                    <span>Open Demo →</span>
+                </div>
+            </a>
+
+        </div>
+
+        <!-- Week 1 Projects -->
+        <div class="section-header">
+            <span class="section-tag">Week 01</span>
+            <h2 class="section-title">Core Web Foundations (HTML &amp; CSS)</h2>
+        </div>
+
+        <div class="grid">
+            
+            <!-- Employee Directory -->
+            <a href="week_1/spendora/employee.html" class="card">
+                <div class="card-top">
+                    <div class="card-badge-row">
+                        <span class="status-badge">Data Layout</span>
+                        <span class="tech-pill">Custom CSS</span>
+                    </div>
+                    <h3 class="card-title">
+                        Employee Directory Table
+                        <span class="arrow-icon">→</span>
+                    </h3>
+                    <p class="card-desc">
+                        Clean tabular layout styling employee profiles, departments, contact numbers, and status indicators built with pure semantic HTML and custom CSS.
+                    </p>
+                    <div class="tag-list">
+                        <span class="tag">Semantic HTML</span>
+                        <span class="tag">CSS Table Styling</span>
+                        <span class="tag">Status Badges</span>
+                    </div>
+                </div>
+                <div class="card-footer-cta">
+                    <span>View Directory</span>
+                    <span>Open Demo →</span>
+                </div>
+            </a>
+
+            <!-- Signup Split Card -->
+            <a href="week_1/spendora/assisgnment2.html" class="card">
+                <div class="card-top">
+                    <div class="card-badge-row">
+                        <span class="status-badge">Auth UI</span>
+                        <span class="tech-pill">CSS Flexbox</span>
+                    </div>
+                    <h3 class="card-title">
+                        Split-Screen Signup Card
+                        <span class="arrow-icon">→</span>
+                    </h3>
+                    <p class="card-desc">
+                        Dual-panel account registration interface with branded welcoming hero side, social login integrations, and clean form inputs.
+                    </p>
+                    <div class="tag-list">
+                        <span class="tag">Flexbox</span>
+                        <span class="tag">Auth Form</span>
+                        <span class="tag">Social Icons</span>
+                    </div>
+                </div>
+                <div class="card-footer-cta">
+                    <span>View Signup</span>
+                    <span>Open Demo →</span>
+                </div>
+            </a>
+
+            <!-- Spendora V1 -->
+            <a href="week_1/spendora/index.html" class="card">
+                <div class="card-top">
+                    <div class="card-badge-row">
+                        <span class="status-badge">Milestone</span>
+                        <span class="tech-pill">HTML Basics</span>
+                    </div>
+                    <h3 class="card-title">
+                        Spendora V1 (Initial Concept)
+                        <span class="arrow-icon">→</span>
+                    </h3>
+                    <p class="card-desc">
+                        The foundational introductory page for the Spendora e-commerce vision created during initial classroom sessions.
+                    </p>
+                    <div class="tag-list">
+                        <span class="tag">HTML5</span>
+                        <span class="tag">Coursework Origin</span>
+                    </div>
+                </div>
+                <div class="card-footer-cta">
+                    <span>View V1</span>
+                    <span>Open Demo →</span>
+                </div>
+            </a>
+
+        </div>
+
+        <footer>
+            <p>
+                eMobilis Fullstack Development Program &bull; Built with dedication by 
+                <a href="https://github.com/musaCODEzz" target="_blank" rel="noopener"><strong>Musa (@musaCODEzz)</strong></a>
+            </p>
+        </footer>
+
+    </div>
+
+</body>
+</html>
