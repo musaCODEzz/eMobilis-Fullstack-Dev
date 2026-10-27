@@ -80,3 +80,5 @@ pnpm-debug.log*
 *.tmp
 *.temp
 *.crdownload
+
+week_3/venv/
