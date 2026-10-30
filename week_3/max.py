@@ -1,0 +1,2 @@
+numberArray = [-1.3, -1.4, -10];
+print(max(numberArray));
