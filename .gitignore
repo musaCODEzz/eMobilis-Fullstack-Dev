@@ -81,4 +81,23 @@ pnpm-debug.log*
 *.temp
 *.crdownload
 
-week_3/venv/
+# --- Python & Virtual Environments ---
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+env/
+*/env/
+venv/
+*/venv/
+.venv/
+*/.venv/
+ENV/
+
+# --- Django ---
+*.sqlite3
+db.sqlite3
+db.sqlite3-journal
+media/
+staticfiles/
