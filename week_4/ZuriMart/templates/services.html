@@ -1,22 +1,121 @@
-<!-- core/templates/services.html -->
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>{{ page_heading }}</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Services — ZuriMart</title>
+    <!-- Linked external stylesheet -->
+    <link rel="stylesheet" href="{% static 'css/services.css' %}">
 </head>
 <body>
-    <!-- Prints 'Our Services' from views.py -->
-    <h1>{{ page_heading }}</h1>
 
-    <!-- Loops through 'service_list' from views.py -->
-    <ul>
-        {% for item in service_list %}
-            <li>{{ item }}</li>
-        {% endfor %}
-    </ul>
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <a href="{% url 'home' %}" class="nav-brand">🛒 ZuriMart</a>
+        <ul class="nav-links">
+            <li><a href="{% url 'home' %}">Home</a></li>
+            <li><a href="{% url 'services' %}" class="active">Services</a></li>
+            <li><a href="{% url 'about' %}">About Us</a></li>
+            <li><a href="{% url 'contact' %}">Contact</a></li>
+            <li><a href="{% url 'contact' %}" class="btn-nav">Get Started</a></li>
+        </ul>
+    </nav>
 
-    <!-- Uses the 'name' from core/urls.py to link back home -->
-    <a href="{% url 'home' %}">Back to Home</a>
+    <!-- Header Banner -->
+    <header class="services-hero">
+        <h1>Our Premium Services</h1>
+        <p>Explore value-added services crafted to provide you with the best shopping, delivery, and warranty support.</p>
+    </header>
+
+    <div class="container">
+        <!-- Services Grid -->
+        <section class="services-grid">
+            <!-- Service 1 -->
+            <div class="service-card">
+                <div>
+                    <span class="service-badge">Express Logistics</span>
+                    <div class="service-icon">🚚</div>
+                    <h3>Doorstep Express Delivery</h3>
+                    <p>Same-day delivery within Nairobi and 24-48 hour nationwide shipping to all 47 counties with live parcel tracking.</p>
+
+                    <ul class="service-features">
+                        <li>✅ Live SMS & WhatsApp tracking</li>
+                        <li>✅ Safe handling guarantee</li>
+                        <li>✅ Scheduled delivery slots</li>
+                    </ul>
+                </div>
+                <a href="{% url 'contact' %}" class="btn-inquire">Inquire on Delivery →</a>
+            </div>
+
+            <!-- Service 2 -->
+            <div class="service-card">
+                <div>
+                    <span class="service-badge">Wholesale & Business</span>
+                    <div class="service-icon">📦</div>
+                    <h3>Bulk Orders & Wholesale</h3>
+                    <p>Special discounted rates and flexible credit lines for schools, corporate offices, retailers, and institutions.</p>
+
+                    <ul class="service-features">
+                        <li>✅ Volume discount pricing</li>
+                        <li>✅ Dedicated account manager</li>
+                        <li>✅ Official VAT receipts & invoicing</li>
+                    </ul>
+                </div>
+                <a href="{% url 'contact' %}" class="btn-inquire">Request Quotation →</a>
+            </div>
+
+            <!-- Service 3 -->
+            <div class="service-card">
+                <div>
+                    <span class="service-badge">Protection & Care</span>
+                    <div class="service-icon">🛡️</div>
+                    <h3>Warranty & Device Repair</h3>
+                    <p>Genuine manufacturer warranties with free replacement or repair on eligible electronics, phones, and appliances.</p>
+
+                    <ul class="service-features">
+                        <li>✅ Up to 2-year warranty plans</li>
+                        <li>✅ Certified repair technicians</li>
+                        <li>✅ Genuine replacement parts only</li>
+                    </ul>
+                </div>
+                <a href="{% url 'contact' %}" class="btn-inquire">Claim or Inquire →</a>
+            </div>
+        </section>
+
+        <!-- Why Choose Us -->
+        <section class="why-section">
+            <h2>Why Trust ZuriMart Services?</h2>
+            <p>We treat every parcel, order, and inquiry with the dedication you deserve.</p>
+
+            <div class="perks-grid">
+                <div class="perk-item">
+                    <h4>🚀 Fast Turnaround</h4>
+                    <p>Rapid dispatch and prompt assistance on all service requests.</p>
+                </div>
+                <div class="perk-item">
+                    <h4>🔒 M-Pesa & Escrow Safe</h4>
+                    <p>Your money is only released once your order is safely delivered.</p>
+                </div>
+                <div class="perk-item">
+                    <h4>💡 Transparent Terms</h4>
+                    <p>Clear delivery fees, direct receipts, and zero hidden costs.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Call to Action -->
+        <section class="cta-box">
+            <h2>Need a Tailored Commercial Solution?</h2>
+            <p>Our sales and logistics team is ready to assist your organization today.</p>
+            <a href="{% url 'contact' %}" class="btn-contact">Contact Our Specialists</a>
+        </section>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2026 ZuriMart. All rights reserved. | Built with Django MVT.</p>
+    </footer>
+
 </body>
 </html>
