@@ -1,14 +1,111 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Home Page</title>
+    <title>ZuriMart — Shop Quality, Live Smart</title>
+    <!-- Linked external stylesheet -->
+    <link rel="stylesheet" href="{% static 'css/index.css' %}">
 </head>
 <body>
-    <h1>Welcome to ZuriMart</h1>
-    <p>This is the home page for ZuriMart.</p>
-    <p>Explore our products and enjoy your shopping experience!</p>
-    <button>Shop Now</button>
+
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <a href="{% url 'home' %}" class="nav-brand">🛒 ZuriMart</a>
+        <ul class="nav-links">
+            <li><a href="{% url 'home' %}" class="active">Home</a></li>
+            <li><a href="{% url 'services' %}">Services</a></li>
+            <li><a href="{% url 'about' %}">About Us</a></li>
+            <li><a href="{% url 'contact' %}">Contact</a></li>
+            <li><a href="{% url 'contact' %}" class="btn-nav">Get Started</a></li>
+        </ul>
+    </nav>
+
+    <!-- Hero Section -->
+    <header class="hero">
+        <div class="hero-content">
+            <h1>Shop Quality, Live Smart at ZuriMart</h1>
+            <p>Your one-stop destination for genuine electronics, trendy fashion, and daily essentials across Kenya.</p>
+            <div class="hero-buttons">
+                <a href="{% url 'services' %}" class="btn-primary">Explore Products</a>
+                <a href="{% url 'about' %}" class="btn-secondary">Learn More</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Value Badges -->
+    <section class="features-section">
+        <div class="features-grid">
+            <div class="feature-card">
+                <div class="feature-icon">🚚</div>
+                <h3>Fast Delivery</h3>
+                <p>Speedy same-day delivery within Nairobi and nationwide express.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">🔒</div>
+                <h3>Secure Payments</h3>
+                <p>Pay easily via M-Pesa, card, or pay on delivery with zero risk.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">🛡️</div>
+                <h3>Genuine Items</h3>
+                <p>100% verified, brand-new products with manufacturer warranties.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">📞</div>
+                <h3>24/7 Support</h3>
+                <p>Our friendly customer care team is always here to assist you.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Popular Categories -->
+    <section class="categories-section">
+        <div class="section-header">
+            <h2>Explore Popular Categories</h2>
+            <p>Hand-picked collections with unbeatable offers just for you</p>
+        </div>
+
+        <div class="categories-grid">
+            <div class="category-card">
+                <div class="category-icon">📱</div>
+                <h3>Electronics & Gadgets</h3>
+                <p>Smartphones, laptops, headphones, and home smart accessories.</p>
+                <a href="{% url 'services' %}" class="category-link">View Collection →</a>
+            </div>
+            <div class="category-card">
+                <div class="category-icon">👗</div>
+                <h3>Fashion & Apparel</h3>
+                <p>Trendy wear, footwear, and casual clothing for all occasions.</p>
+                <a href="{% url 'services' %}" class="category-link">View Collection →</a>
+            </div>
+            <div class="category-card">
+                <div class="category-icon">🏡</div>
+                <h3>Home & Living</h3>
+                <p>Kitchenware, modern decor, and comfortable bedding.</p>
+                <a href="{% url 'services' %}" class="category-link">View Collection →</a>
+            </div>
+            <div class="category-card">
+                <div class="category-icon">🍎</div>
+                <h3>Fresh Essentials</h3>
+                <p>Everyday groceries, healthy snacks, and household essentials.</p>
+                <a href="{% url 'services' %}" class="category-link">View Collection →</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Banner -->
+    <section class="cta-banner">
+        <h2>Ready to Experience Modern Shopping?</h2>
+        <p>Join thousands of satisfied shoppers. Reach out today or check out our services.</p>
+        <a href="{% url 'contact' %}">Contact Us Now</a>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2026 ZuriMart. All rights reserved. | Built with Django MVT.</p>
+    </footer>
+
 </body>
 </html>
