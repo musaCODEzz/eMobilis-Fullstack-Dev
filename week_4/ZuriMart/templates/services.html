@@ -1,0 +1,22 @@
+<!-- core/templates/services.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{{ page_heading }}</title>
+</head>
+<body>
+    <!-- Prints 'Our Services' from views.py -->
+    <h1>{{ page_heading }}</h1>
+
+    <!-- Loops through 'service_list' from views.py -->
+    <ul>
+        {% for item in service_list %}
+            <li>{{ item }}</li>
+        {% endfor %}
+    </ul>
+
+    <!-- Uses the 'name' from core/urls.py to link back home -->
+    <a href="{% url 'home' %}">Back to Home</a>
+</body>
+</html>
