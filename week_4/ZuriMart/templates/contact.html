@@ -1,13 +1,111 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Contact Page</title>
+    <title>Contact Us — ZuriMart</title>
+    <link rel="stylesheet" href="{% static 'css/contact.css' %}">
 </head>
 <body>
-    <h1>Contact ZuriMart</h1>
-    <p>Get in touch with us!</p>
-    <p>Feel free to reach out for any inquiries or support.</p>
+
+    <div class="container">
+        <div class="header">
+            <h1>Get In Touch With ZuriMart</h1>
+            <p>Have questions about your order or our products? We'd love to hear from you.</p>
+        </div>
+
+        <div class="contact-wrapper">
+            <!-- Left Info Panel -->
+            <div class="contact-info">
+                <div>
+                    <h2>Contact Information</h2>
+                    <p>Fill out the form and our team will get back to you within 24 hours.</p>
+
+                    <ul class="info-items">
+                        <li>
+                            <span>📍</span>
+                            <div>
+                                <strong>Address:</strong><br>
+                                Moi Avenue, Nairobi, Kenya
+                            </div>
+                        </li>
+                        <li>
+                            <span>📞</span>
+                            <div>
+                                <strong>Phone:</strong><br>
+                                +254 700 000 000
+                            </div>
+                        </li>
+                        <li>
+                            <span>✉️</span>
+                            <div>
+                                <strong>Email:</strong><br>
+                                support@zurimart.com
+                            </div>
+                        </li>
+                        <li>
+                            <span>🕒</span>
+                            <div>
+                                <strong>Working Hours:</strong><br>
+                                Mon - Sat: 8:00 AM - 6:00 PM
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Social Icons from your static folder -->
+                <div class="social-section">
+                    <h3>Connect With Us</h3>
+                    <div class="social-links">
+                        <a href="https://facebook.com" target="_blank" title="Facebook">
+                            <img src="{% static 'images/facebook.png' %}" alt="Facebook">
+                        </a>
+                        <a href="https://linkedin.com" target="_blank" title="LinkedIn">
+                            <img src="{% static 'images/linkedin.png' %}" alt="LinkedIn">
+                        </a>
+                        <a href="mailto:support@zurimart.com" title="Email">
+                            <img src="{% static 'images/google+.png' %}" alt="Email">
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Right Message Form -->
+            <div class="contact-form">
+                <h2>Send Us A Message</h2>
+                <form action="#" method="POST">
+                    {% csrf_token %}
+                    
+                    <div class="form-group">
+                        <label for="name">Your Name</label>
+                        <input type="text" id="name" name="name" placeholder="John Doe" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="email">Your Email Address</label>
+                        <input type="email" id="email" name="email" placeholder="john@example.com" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="subject">Subject</label>
+                        <input type="text" id="subject" name="subject" placeholder="Inquiry about product..." required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="message">Message</label>
+                        <textarea id="message" name="message" rows="5" placeholder="Write your message here..." required></textarea>
+                    </div>
+
+                    <button type="submit" class="btn-submit">Send Message</button>
+                </form>
+            </div>
+        </div>
+
+        <div class="back-nav">
+            <a href="{% url 'home' %}">← Back to ZuriMart Home</a>
+        </div>
+    </div>
+
 </body>
 </html>
