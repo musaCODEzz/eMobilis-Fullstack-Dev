@@ -1,0 +1,56 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Frequently Asked Questions — ZuriMart</title>
+    <link rel="stylesheet" href="{% static 'css/faq.css' %}">
+</head>
+<body>
+
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <a href="{% url 'home' %}" class="nav-brand">🛒 ZuriMart</a>
+        <ul class="nav-links">
+            <li><a href="{% url 'home' %}">Home</a></li>
+            <li><a href="{% url 'services' %}">Services</a></li>
+            <li><a href="{% url 'about' %}">About Us</a></li>
+            <li><a href="{% url 'contact' %}">Contact</a></li>
+        </ul>
+    </nav>
+
+    <div class="faq-container">
+        <h1>Frequently Asked Questions</h1>
+        <p class="subtitle">Quick answers to common questions about shopping at ZuriMart.</p>
+
+        <div class="faq-list">
+            <div class="faq-card">
+                <h3>🚚 How long does delivery take?</h3>
+                <p>Deliveries within Nairobi take 2–6 hours on the same day. For destinations outside Nairobi, express delivery arrives within 24 to 48 hours.</p>
+            </div>
+
+            <div class="faq-card">
+                <h3>💳 What payment methods do you accept?</h3>
+                <p>We accept M-Pesa, Debit/Credit Cards (Visa & Mastercard), and Cash on Delivery for verified addresses.</p>
+            </div>
+
+            <div class="faq-card">
+                <h3>🔄 What is your return policy?</h3>
+                <p>We offer a hassle-free 7-day return policy for any damaged, defective, or incorrect items with an immediate refund or replacement.</p>
+            </div>
+
+            <div class="faq-card">
+                <h3>🛡️ Are products genuine with warranty?</h3>
+                <p>Yes! Every item sold on ZuriMart is 100% original, verified directly from official manufacturers, and backed by a minimum 1-year warranty.</p>
+            </div>
+        </div>
+
+        <div class="faq-cta">
+            <p>Still have questions?</p>
+            <a href="{% url 'contact' %}">Talk to Customer Support →</a>
+        </div>
+    </div>
+
+</body>
+</html>
