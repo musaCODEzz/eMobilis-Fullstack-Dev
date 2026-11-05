@@ -12,3 +12,6 @@ def contact(request):
 
 def services(request):
     return render(request, 'services.html')
+
+def contact2(request):
+    return render(request, 'contact2.html')
